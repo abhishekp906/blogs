@@ -1,0 +1,45 @@
+
+br
+br
+
+div class="search"
+
+  .row
+    = semantic_form_for :tute, :url => {:action => 'index'}, :method => :get, :html => {:class => "well form-search"} do |f|
+      div style="padding-left:50px;"
+        = f.text_field :search, :value => params[:tute] && params[:tute][:search], :class => "search-query input-medium", :style => "width:200px;"
+        = f.submit 'Search', :class => "btn mlm", :id => 'book-search-btn'
+
+h1="Railscasts"
+= paginate @tutes, :theme => 'twitter-bootstrap'
+
+- 3.times do
+  br
+
+
+table.table.table-striped
+  tr
+    th= sortable "episode"
+    th= sortable "title"
+    th= sortable "general_type", "Type"
+    th 
+      .span="Info"
+
+  - @tutes.each do |tute| 
+    tr
+      td= tute.episode
+      td= tute.title
+      td= tute.general_type.capitalize 
+      td
+        .span style="margin-left:0px;"
+          = link_to "Video", tute.video_link, :class => "btn btn-info fancybox.iframe", :style => "border:3px;"
+        |
+        .span style="margin-left:10px;" 
+          = link_to "Read", tute.read_link, :class => "btn btn-info read fancybox.iframe"
+
+= paginate @tutes, :theme => 'twitter-bootstrap'
+
+br
+
+css:
+ .pagination ul{float:right;}

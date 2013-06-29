@@ -1,0 +1,22 @@
+
+<GoogleCustomizations>
+<CustomSearchEngine>
+<Title>Solar Energy</Title>
+<Description>
+A Google Custom Search Engine that only includes solar energy sites
+</Description>
+<Context>
+<BackgroundLabels>
+<Label name="solar_example" mode="FILTER"/>
+</BackgroundLabels>
+</Context>
+<LookAndFeel nonprofit="true">
+<!--...-->
+<Colors url="#FF6600" background="#FFFF33" border="#FF6600" title="#FF3300" text="#000000" visited="#663399" light="#FF0077"/>
+</LookAndFeel>
+</CustomSearchEngine>
+<!--...-->
+<!--  Link to a XML annotations files  -->
+<Include type="Annotations" href="http://stormy-stream-9168.herokuapp.com/cref_anno.xml"/>
+<!--...-->
+</GoogleCustomizations>
